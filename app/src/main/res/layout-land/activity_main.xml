@@ -32,6 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="radioFahrenheitClicked"
             android:text="Fahrenheit to Celsius" />
 
         <RadioButton
@@ -39,22 +40,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="radioCelsiusClicked"
             android:text="Celsius to Fahrenheit" />
     </RadioGroup>
 
     <TextView
-        android:id="@+id/textFahrenheit"
+        android:id="@+id/textDegreesTop"
         android:layout_width="220dp"
         android:layout_height="30dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="Fahrenheit Degrees:"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/inputLayoutFahrenheit"
-        tools:layout_editor_absoluteY="7dp" />
+        app:layout_constraintEnd_toStartOf="@+id/inputLayoutTop"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/inputLayoutFahrenheit"
+        android:id="@+id/inputLayoutTop"
         android:layout_width="115dp"
         android:layout_height="35dp"
         android:layout_marginTop="8dp"
@@ -63,10 +66,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/textInputFahrenheit"
+            android:id="@+id/textInputTop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/darker_gray"
+            android:inputType="numberDecimal|numberSigned"
             tools:layout_height="match_parent" />
     </android.support.design.widget.TextInputLayout>
 
@@ -76,25 +80,26 @@
         android:layout_height="43dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:onClick="convertButtonClicked"
         android:paddingTop="8dp"
         android:text="Convert"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textFahrenheit" />
+        app:layout_constraintTop_toBottomOf="@+id/inputLayoutTop" />
 
     <TextView
-        android:id="@+id/textCelsius"
-        android:layout_width="190dp"
+        android:id="@+id/textDegreesBottom"
+        android:layout_width="220dp"
         android:layout_height="34dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="8dp"
         android:text="Celsius Degrees:"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/inputLayoutCelsius"
+        app:layout_constraintEnd_toStartOf="@+id/inputLayoutBottom"
         app:layout_constraintTop_toBottomOf="@+id/buttonConvert" />
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/inputLayoutCelsius"
+        android:id="@+id/inputLayoutBottom"
         android:layout_width="115dp"
         android:layout_height="35dp"
         android:layout_marginTop="8dp"
@@ -104,10 +109,11 @@
         tools:layout_height="35dp">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/textInputCelsius"
+            android:id="@+id/textInputBottom"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@android:color/darker_gray" />
+            android:background="@android:color/darker_gray"
+            android:inputType="number" />
     </android.support.design.widget.TextInputLayout>
 
     <TextView
@@ -141,6 +147,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
         android:text="Clear"
+        android:onClick="clearButtonClicked"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

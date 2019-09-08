@@ -61,11 +61,10 @@
     <android.support.design.widget.TextInputLayout
         android:id="@+id/inputLayoutTop"
         android:layout_width="115dp"
-        android:layout_height="35dp"
+        android:layout_height="44dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
-        android:background="?attr/colorButtonNormal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textDegreesTop"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup">
@@ -73,9 +72,12 @@
         <android.support.design.widget.TextInputEditText
             android:id="@+id/textInputTop"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="?attr/colorButtonNormal"
+            android:gravity="center"
             android:inputType="numberDecimal|numberSigned"
+            android:textSize="18sp"
+            android:textStyle="bold"
             tools:layout_height="match_parent" />
     </android.support.design.widget.TextInputLayout>
 
@@ -86,8 +88,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="Convert"
         android:onClick="convertButtonClicked"
+        android:text="Convert"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textDegreesTop" />
@@ -112,6 +114,9 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="?attr/colorButtonNormal"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toEndOf="@+id/textDegreesBottom"
@@ -132,7 +137,7 @@
     <TextView
         android:id="@+id/textInputHistory"
         android:layout_width="362dp"
-        android:layout_height="0dp"
+        android:layout_height="151dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"

@@ -17,26 +17,17 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    private static final String TAG = "MainActivity";
-//    private Button buttonConvert;
-//    private Button buttonClear;
     private TextView textDegreesTop;
     private TextView textDegreesBottom;
     private TextView textConversionHistory;
     private TextView textInputBottom;
     private int radioValue = 0;
     ArrayList<String> conversionHistory = new ArrayList<String>();
-//    private EditText inputText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-//        buttonConvert = findViewById(R.id.buttonConvert);
-//        buttonClear = findViewById(R.id.buttonClear);
-
     }
 
     //radio methods
@@ -46,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         textDegreesBottom = (TextView) findViewById(R.id.textDegreesBottom);
         textDegreesBottom.setText("Celsius Degrees: ");
         radioValue = 0;
-
     }
 
     public void radioCelsiusClicked(View v) {
@@ -55,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         textDegreesBottom = (TextView) findViewById(R.id.textDegreesBottom);
         textDegreesBottom.setText("Fahrenheit Degrees: ");
         radioValue = 1;
-
     }
 
     //button methods
@@ -97,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
                 stringConversionHistory += s + System.getProperty("line.separator");
             }
 
+            //set conversion history
             textConversionHistory = (TextView) findViewById(R.id.textInputHistory);
             textConversionHistory.setText(stringConversionHistory);
 
@@ -106,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clearButtonClicked(View v) {
+        //clear conversionHistory array and set conversion history text to empty string
         conversionHistory.clear();
         textConversionHistory = (TextView) findViewById(R.id.textInputHistory);
         textConversionHistory.setText("");

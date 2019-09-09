@@ -4,6 +4,7 @@ import android.os.Looper;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         textDegreesBottom = (TextView) findViewById(R.id.textDegreesBottom);
         textResult = (TextView) findViewById(R.id.textResult);
         textConversionHistory = (TextView) findViewById(R.id.textInputHistory);
+
+        textConversionHistory.setMovementMethod(new ScrollingMovementMethod());
     }
 
     //radio methods
@@ -57,27 +60,26 @@ public class MainActivity extends AppCompatActivity {
     public void convertButtonClicked(View v) {
         //this if statement prevents the app from crashing if there is no value input
         if (inputText.length() > 0) {
-            String stringResult = inputText.getText().toString();
-            float floatResult = Float.parseFloat(stringResult);
+            String stringInput = inputText.getText().toString();
+            float floatInput = Float.parseFloat(stringInput);
+            double inputRoundOff = Math.round(floatInput * 10.0)/10.0;
             String stringFinalResult = "";
             double conversionResult = 0.0;
             String formattedValue = "";
 
             if (radioValue == 0) {
                 //if converting F to C
-                conversionResult = (floatResult - 32.0) / 1.8;
-                DecimalFormat df = new DecimalFormat("#.#");
-                formattedValue = df.format(conversionResult);
-                stringFinalResult = floatResult + " F ==> " + formattedValue + " C";
+                conversionResult = Math.round(((floatInput - 32.0) / 1.8) * 10.0)/10.0;
+                stringFinalResult = inputRoundOff + " F ==> " + conversionResult + " C";
             } else if (radioValue == 1) {
                 //if converting C to F
-                conversionResult = (floatResult * 1.8) + 32;
-                DecimalFormat df = new DecimalFormat("#.#");
-                formattedValue = df.format(conversionResult);
-                stringFinalResult = floatResult + " C ==> " + formattedValue + " F";
+                conversionResult = Math.round(((floatInput * 1.8) + 32) * 10.0)/10.0;
+                stringFinalResult = inputRoundOff + " C ==> " + conversionResult + " F";
             }
 
-            textResult.setText(formattedValue);
+            String stringConversionResult = Double.toString(conversionResult);
+
+            textResult.setText(stringConversionResult);
 
             //add string value to conversion history string array
             conversionHistory.add(0, stringFinalResult);
